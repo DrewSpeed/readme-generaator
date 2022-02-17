@@ -15,7 +15,28 @@ function promptUser() {
             if (!response.length) {
                 return console.log("Please enter a valid title name.")
             }
-            console.log(response);
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'github',
+        validate: function (response) {
+            if (!response.length) {
+                return console.log("Please enter a valid username.")
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        message: 'What is your email?',
+        name: 'email',
+        validate: function (response) {
+            if (!response.length) {
+                return console.log("Please enter a valid email.")
+            }
             return true;
         }
     },
@@ -77,7 +98,6 @@ async function init() {
     const answers = await promptUser();
     const generateContent = generateMarkdown(answers);
     console.log("Your responses: ", answers);
-    const project = answers.title;
     await writeFileAsync('./dist/README.md', generateContent);
     } catch(err) {
         console.log(err);

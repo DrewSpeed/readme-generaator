@@ -1,23 +1,33 @@
-# this
+# this project
+![badge](https://img.shields.io/badge/license-GNU-blue)
+## Description
+this
 
-  ## Description
-  that
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-  ## Table of Contents
+## Installation
+that
 
-  ## Installation
-  this
+## Usage
+this
 
-  ## Usage
-  that
+## License
+  This application is covered by the [GNU](https://www.gnu.org/licenses/gpl-3.0) license.
 
-  
+## Contributing
+that
 
-  ## Contributing
-  this
+## Tests
+this
 
-  ## Tests
-  that
-
-  ## Questions
-
+## Questions
+[My Github Profile](github.com/DrewSpeed)<br/>
+If you have any questions regarding this application, please email me at 
+[drewjspeed@gmail.com](drewjspeed@gmail.com)

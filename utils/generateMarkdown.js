@@ -31,32 +31,49 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderLicenseToc(license) {
+  if (license === 'None') {
+    return
+  } else {
+    return `- [License](#license)`
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   license = data.license;
   return `# ${data.title}
 ${renderLicenseBadge(license)}
-  ## Description
-  ${data.description}
+## Description
+${data.description}
 
-  ## Table of Contents
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+${renderLicenseToc(license)}
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-  ## Installation
-  ${data.installation}
+## Installation
+${data.installation}
 
-  ## Usage
-  ${data.usage}
+## Usage
+${data.usage}
 
-  ${renderLicenseSection(license)}
+${renderLicenseSection(license)}
 
-  ## Contributing
-  ${data.contributing}
+## Contributing
+${data.contributing}
 
-  ## Tests
-  ${data.tests}
+## Tests
+${data.tests}
 
-  ## Questions
-
+## Questions
+To see more of my work, visit [my Github profile](github.com/${data.github}).<br/>
+If you have any questions regarding this application, please email me at 
+[${data.email}](${data.email}).
 `;
 }
 
