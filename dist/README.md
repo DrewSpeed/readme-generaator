@@ -1,5 +1,5 @@
 # this
-  ![badge](https://img.shields.io/badge/license-Apache-brightgreen)<br/>
+
   ## Description
   that
 
@@ -11,7 +11,6 @@
   ## Usage
   that
 
-  ## License
   
 
   ## Contributing
