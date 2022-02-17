@@ -2,9 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const util = require('util');
 
 // TODO: Create an array of questions for user input
-const questions = () => {
+function promptUser() {
     return inquirer.prompt([
     {
         type: 'input',
@@ -18,18 +19,60 @@ const questions = () => {
             return true;
         }
     },
-]);
-};
-questions()
-    .then(answers => {
-        console.log(answers);
-    })
+    {
+        type: 'input',
+        message: 'Please enter a brief description of your project.',
+        name: 'description',
+    },
+    {
+        type: 'input',
+        message: 'What are the steps required to install your project?',
+        name: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'Please provide instructions and examples for use.',
+        name: 'usage',
+    },
+    {
+        type: 'input',
+        message: 'If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so.',
+        name: 'contributing',
+    },
+    {
+        type: 'input',
+        message: 'Please provide testing instructions and/or examples.',
+        name: 'tests',
+    },
+])
+}
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log('Your README.md file has been created!')
+    })
+}
+
+const writeFileAsync = util.promisify(writeToFile)
 
 // TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    try {
+    const answers = await promptUser();
+    const generateContent = generateMarkdown(answers);
+    console.log("Your responses: ", answers);
+    const project = answers.title;
+    await writeFileAsync('./dist/' + project, generateContent);
+    } catch(err) {
+        console.log(err);
+    }
+    
+}
 
 // Function call to initialize app
-init();
+init()
