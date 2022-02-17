@@ -44,6 +44,17 @@ function promptUser() {
         message: 'Please provide testing instructions and/or examples.',
         name: 'tests',
     },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Please select a license for this product:',
+        choices: [
+            'Apache',
+            'GNU',
+            'MIT',
+            'None'
+        ]
+    },
 ])
 }
 
@@ -67,7 +78,7 @@ async function init() {
     const generateContent = generateMarkdown(answers);
     console.log("Your responses: ", answers);
     const project = answers.title;
-    await writeFileAsync('./dist/' + project, generateContent);
+    await writeFileAsync('./dist/README.md', generateContent);
     } catch(err) {
         console.log(err);
     }
