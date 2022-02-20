@@ -52,12 +52,12 @@ function promptUser() {
     },
     {
         type: 'input',
-        message: 'Please provide instructions and examples for use.',
+        message: 'Please provide instructions and/or examples for use.',
         name: 'usage',
     },
     {
         type: 'input',
-        message: 'If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so.',
+        message: 'What does the user need to know about contributing to the repo?',
         name: 'contributing',
     },
     {
